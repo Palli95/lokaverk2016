@@ -1,0 +1,214 @@
+
+<?php 
+include_once "php/class.datamanager.php"; 
+$db_man = new DatabaseManager('localhost','website','root','Tinnioglisa12');
+$errors = [];
+$missing = [];
+
+ 
+
+
+
+if (isset($_POST['send'])) {
+
+    // list expected fields
+    $expected = ['name', 'password'];
+    $required = ['name', 'password'];
+    // sækjum skrá sem vinnur með input gögnin úr formi, $_POST[]
+    require 'process.php';
+    $name = $_POST['name'];
+  $password = $_POST['password'];
+ 
+
+$user = $db_man-> getUser($name,$password);
+
+if($user > 1)
+{  
+   $_SESSION["name"] = $name;
+    session_start();
+     $_SESSION["name"] = $name;
+                         
+
+}
+else {
+ ?> 
+
+
+
+
+<?php
+}
+
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <?php 
+  include_once "php/class.datamanager.php"; 
+$db_man = new DatabaseManager('localhost','vefsida','root','Tinnioglisa12');
+   ?>
+      <title>Palli</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+      <link href="dist/css/bootstrap.min.js" rel="stylesheet">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <link rel="stylesheet" href="style.css">
+      <script src="dist/css/bootstrap2.js"> </script>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+</head>
+<body>
+      <header>
+          <nav class="navbar navbar-inverse navbar-fixed-top" >
+              <div class="container">
+                <div class="navbar-header">
+            <a class="navbar-brand " href="#" data-toggle="collapse" data-target=".navbar-collapse">Herra Snjallri</a>
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>            
+                    <span class="icon-bar"></span>
+                  </button>
+                   <li class="dropdown" style="float:right">
+                      <a class="dropdown-toggle navbar-brand" data-toggle="dropdown" href="#">Um okkur <span class="caret"></span></a>
+                      
+                      <ul class="dropdown-menu">
+                        <li><a href="#">Starfsmenn</a></li>
+                        <li><a href="#">Verð</a></li>
+                        <li><a href="#">Hafa samband</a></li>
+                        <li><a onclick="document.getElementById('id01').style.display='block'" data-toggle="collapse" data-target=".navbar-collapse">Login</a></li>
+                      </ul>
+                    </li> 
+                </div>
+                <div class="collapse navbar-collapse">
+                  <ul class="nav navbar-nav">
+                    <li><a href="#sjonvarp" data-toggle="collapse" data-target=".navbar-collapse">Sjonvarp</a></li>
+                    <li><a href="#appletv" data-toggle="collapse" data-target=".navbar-collapse">Apple tv</a></li>
+                    <li><a href="#vefsidugerd" data-toggle="collapse" data-target=".navbar-collapse">Vefsíðugerð</a></li>
+                    <li><a href="#tolvutjonusta" data-toggle="collapse" data-target=".navbar-collapse">Tövluþjónusta</a></li>
+                    <li><a href="#farsimalaekkun" data-toggle="collapse" data-target=".navbar-collapse">Farsímalækkun</a></li>
+                    <li><a href="#heimabio" data-toggle="collapse" data-target=".navbar-collapse">Heimabíó</a></li>
+                    <li><a href="#internet" data-toggle="collapse" data-target=".navbar-collapse">Internet</a></li>
+                    <li><a href="#smarttenging" data-toggle="collapse" data-target=".navbar-collapse">Smart tenging</a></li>
+
+                  </ul>     
+                </div>
+              </div>
+          </nav>
+      </header>
+
+
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-body">
+        <span class="close" style="color:black">×</span>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Skrifaðu inn upplýsingar</h3>
+            </div>
+            <div class="panel-body">
+              <form role="form" >              
+                  <div class="form-group">                  
+                      <input type="text" name="first_name" id="first_name" class="form-control input-sm floatlabel" placeholder="Nafn">                   
+                  </div>                 
+                    <div class="form-group" >
+                      <input type="text" name="last_name" id="last_name" class="form-control input-sm" placeholder="Símanumer">
+                    </div>
+                <div class="form-group">
+                  <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Netfang">
+                </div>
+                <div class="form-group">
+                    <textarea class="span9" placeholder="Athugasemdir"></textarea>
+                </div>
+                <input type="submit" value="Bóka Tíma"   class="btn btn-info btn-block">
+              </form>
+
+            </div>
+          </div>
+    </div>
+  </div>
+    <h3>PogK</h3>   
+</div>
+
+
+
+
+
+<div class="image">
+  <img src="macbook4.jpg" alt"" class="image stretch hidden-xs"/>
+  <img src="macbookxs.jpg" alt"" class="image stretch hidden-lg hidden-mg hidden-lg"/>
+  <h2 class="img-responsive"> Ttext9iodsjtsoidjf </h2>
+  <h1 class="img-responsive">PogK</h1>
+  <div class="box">
+  <a class="myButton "  href="#popup1">Smelltu hér til að bóka tíma</a>
+</div>
+</div>
+<div class="d1" id="sjonvarp" > <h5>sjonvarp</h5> <img src="tv.jpg" alt"" class="image stretch "/> <div class="insided1"> SJÓNVARP OG MYNDLYKILL <br>Texti texti texti texti texti texti texti</div></div>
+<div class="d2" id="appletv" > <h5>Apple tv</h5><img src="appletv.jpg" alt"" class="image stretch "/></div>
+<div class="d3" id="vefsidugerd" > <h5>Vefsíðugerð</h5> <img src="webdesign.jpg" alt""  class="image stretch "/></div>
+<div class="d4" id="tolvutjonusta"> <h5>Tölvuþjónusta</h5> <img src="tolvuhjalp.jpg" alt""  class="image stretch "/></div>
+<div class="d5" id="farsimalaekkun"> <h5 style="color:white">Farsímalækkun</h5> <img src="simi.jpg" alt""  class="image stretch "/></div>
+<div class="d6" id="heimabio"> <h5>Heimabíó</h5> <img src="heimabio.jpg" alt""  class="image stretch "/></div>
+<div class="d7" id="internet"> <h5 style="color:white">Internet</h5> <img src="internet.jpg" alt""  class="image stretch "/></div>
+<div class="d8" id="smarttenging"> <h5>Smart tenging</h5> <img src="tengi.jpg" alt""  class="image stretch "/></div>
+<script src="dist/js/javascript.js"> </script>
+
+      <div id="popup1" class="overlay">
+  <div class="popup">
+    <!--<h2>Here i am</h2>-->
+    <a class="close2" href="#">&times;</a>
+    <div class="content">
+       <form role="form" action='php/bokatima.php' method='post' accept-charset='UTF-8'>              
+                  <div class="form-group">                  
+                      <input type="text" name="name" id="name" class="form-control input-sm floatlabel" placeholder="Nafn">                   
+                  </div>                 
+                    <div class="form-group" >
+                      <input type="text" name="phone"  class="form-control input-sm" placeholder="Símanumer">
+                    </div>
+                <div class="form-group">
+                  <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Netfang">
+                </div>
+                <div class="form-group">
+                    <textarea class="span9" name="comment" id="comment" placeholder="Athugasemdir"></textarea>
+                </div>
+                <input type="submit" value="Bóka Tíma"   class="btn btn-info btn-block">
+              </form>
+    </div>
+  </div>
+</div>
+
+<div id="id01" class="modal3">
+  
+  <form class="modal-content3 animate" action="">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close3" title="Close Modal">&times;</span>
+      <img src="img_avatar2.png" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container3">
+      <label><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="name" required>
+
+      <label><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="password" required>
+        
+      <button type="submit" name="send">Login</button>
+      <input type="checkbox" checked="checked"> Remember me
+    </div>
+
+    <div class="container3" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,11 @@
+<?php
+include "php/class.datamanager.php"; 
+$db_man = new DatabaseManager('localhost','website','root','Tinnioglisa12');
+
+$sql = "insert into messages (message) values('$name')";
+if(mysql_query($sql)){
+   echo 'successfully inserted';
+}else{
+   echo 'could not insert';
+}
+?>
